@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @RequestMapping("/api/abstract-factory")
-public class AbstractFctoryController {
+public class AbstractFactoryController {
 
 
     @GetMapping("test")
