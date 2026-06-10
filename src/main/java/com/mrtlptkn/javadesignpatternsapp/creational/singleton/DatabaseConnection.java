@@ -8,7 +8,7 @@ public class DatabaseConnection {
     // bu nesneyi kilitleyeceğiz. CPU cacheleme ve intruction reordering sorunlarını önler.
     // thread safe çalışmamızı sağlar
     // Kilitleyeceğimiz nesnenin DatabaseConnection.class bu özellikte olması gerekiyor.
-    private static volatile DatabaseConnection instance;
+    private volatile static DatabaseConnection instance;
 
     private final String url;
     private final int maxPoolSize;
