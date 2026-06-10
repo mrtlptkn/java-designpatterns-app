@@ -17,4 +17,14 @@ public class SingletonController {
         return ResponseEntity.ok("Singleton örneği: " + configManager.getAppName() + " v" + configManager.getVersion());
     }
 
+    @PostMapping("test2")
+    public ResponseEntity<String> test2(){
+
+        DatabaseConnection dbConn = DatabaseConnection
+                .getInstance("jdbc://postgres:admin",10);
+        dbConn.connect();
+
+        return ResponseEntity.ok("Singleton örneği: " + dbConn.getUrl() + " maxPoolSize: " + dbConn.getMaxPoolSize());
+    }
+
 }

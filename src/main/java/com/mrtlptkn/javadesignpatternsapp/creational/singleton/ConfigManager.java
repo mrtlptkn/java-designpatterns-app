@@ -15,6 +15,8 @@ public class ConfigManager {
         this.environment = System.getProperty("spring.profiles.active", "default");
     }
 
+    // Not: Holder yönteminde instance alırken parametreik bir yapı kuramayız.
+    // new ConfigManager(); üzerinden izin veriyor.
     // thread-safe bir yapı sağlıyor.
     // Java JVM üzerinden sağlanan bir özellik.
     // eş zamanlılık concurency sorunlarını ortadan kaldırıyor.
