@@ -8,6 +8,9 @@ import org.springframework.web.bind.annotation.*;
 public class AbstractFactoryController {
 
 
+    // COntroller sorumluluğu request al ve ver (dto) -> tek satır kod.
+    // Seperation Of Concerns
+
     @PostMapping("test")
     public ResponseEntity<String> test(@RequestBody ThemeRequestDto dto){
 
