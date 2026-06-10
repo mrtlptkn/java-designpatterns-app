@@ -5,8 +5,8 @@ package com.mrtlptkn.javadesignpatternsapp.creational.builder;
 
 public class Pizza {
     // extra peynirli mi ?
-    private boolean extraCheese;
-    private boolean extraMushroom;
+    private boolean extraCheeses;
+    private boolean extraMushrooms;
     private  boolean extraOlives;
     // medium, large, x-large, small
     private final String size;
@@ -15,25 +15,22 @@ public class Pizza {
         this.size = size;
     }
 
-    public String getSize() {
-        return size;
-    }
 
-    public boolean getExtraCheese() {
-        return extraCheese;
+    public boolean getExtraCheeses() {
+        return extraCheeses;
     }
 
     public void setExtraCheese() {
-        this.extraCheese = true;
+        this.extraCheeses = true;
     }
 
 
-    public boolean getExtraMushroom() {
-        return extraMushroom;
+    public boolean getExtraMushrooms() {
+        return extraMushrooms;
     }
 
     public void setExtraMushroom() {
-        this.extraMushroom = true;
+        this.extraMushrooms = true;
     }
 
 

@@ -1,5 +1,9 @@
 package com.mrtlptkn.javadesignpatternsapp.creational.builder;
 
+// Solid Prensiplerine aykırı br davranış var
+// Ama kohezyon açısından bir sorun teşkil etmiyor.
+
+
 public class PizzaBuilderImp implements PizzaBuilder {
 
     private final Pizza pizza;
@@ -9,13 +13,13 @@ public class PizzaBuilderImp implements PizzaBuilder {
     }
 
     @Override
-    public PizzaBuilder withExtraCheese() {
+    public PizzaBuilder withExtraCheeses() {
         this.pizza.setExtraCheese();
         return this;
     }
 
     @Override
-    public PizzaBuilder withExtraMushroom() {
+    public PizzaBuilder withExtraMushrooms() {
         this.pizza.setExtraMushroom();
         return this;
     }

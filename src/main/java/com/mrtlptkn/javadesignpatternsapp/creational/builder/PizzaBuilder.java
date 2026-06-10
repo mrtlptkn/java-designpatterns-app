@@ -4,8 +4,8 @@ package com.mrtlptkn.javadesignpatternsapp.creational.builder;
 
 public interface PizzaBuilder {
 
-    PizzaBuilder withExtraCheese();
-    PizzaBuilder withExtraMushroom();
+    PizzaBuilder withExtraCheeses();
+    PizzaBuilder withExtraMushrooms();
     PizzaBuilder withExtraOlives();
 
     Pizza build();
