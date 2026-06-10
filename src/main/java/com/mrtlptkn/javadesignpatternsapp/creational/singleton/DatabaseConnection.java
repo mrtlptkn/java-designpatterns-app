@@ -1,5 +1,8 @@
 package com.mrtlptkn.javadesignpatternsapp.creational.singleton;
 
+
+// Not: Java Runtime.getRunTime(); farmework örneği
+
 public class DatabaseConnection {
 
     // bu nesneyi kilitleyeceğiz. CPU cacheleme ve intruction reordering sorunlarını önler.
@@ -29,6 +32,7 @@ public class DatabaseConnection {
                 }
             }
         }
+
         return instance;
     }
 
