@@ -1,22 +1,20 @@
 package com.mrtlptkn.javadesignpatternsapp.creational.abstractFactory;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
+@RestController
 @RequestMapping("/api/abstract-factory")
 public class AbstractFactoryController {
 
 
-    @GetMapping("test")
-    public ResponseEntity<String> test(){
+    @PostMapping("test")
+    public ResponseEntity<String> test(@RequestBody ThemeRequestDto dto){
 
-        String factoryType = "LightTheme";
-
-        UIThemeFactory factory = switch (factoryType){
+        UIThemeFactory factory = switch (dto.themeType()){
             case "LightTheme" -> new LightThemeFactory();
             case "DarkTheme"  -> new DarkThemeFactory();
-            default          -> throw new IllegalArgumentException("Bilinmeyen tema tipi: " + factoryType);
+            default          -> throw new IllegalArgumentException("Bilinmeyen tema tipi: " + dto.themeType());
         };
 
         // Ortak amaç factory sayısı her zaman o factornin ürettiği karmaşık ürün sayısından daha az olacaktır.
@@ -25,7 +23,9 @@ public class AbstractFactoryController {
         Button btn =  factory.createButton();
         btn.render(); // LightButton Render
 
-        factoryType= "DarkTheme";
+        CheckBox checkBox = factory.createCheckBox();
+        checkBox.render(); // LightCheckBox Render
+
 
         // Button btnSample = new DarkButton(); // bunu factory üzerinden otomatik üretiyorum.
         // if(factoryType.equals("DarkTheme")){
@@ -33,8 +33,8 @@ public class AbstractFactoryController {
         // } else if(factoryType.equals("LightTheme")){
         //     btnSample = new LightButton();
         // }
-        Button btn2 = factory.createButton(); // DarkButton Talebi.
-        btn2.render(); // DarkButton Render
+        //Button btn2 = factory.createButton(); // DarkButton Talebi.
+        //btn2.render(); // DarkButton Render
 
 
         return ResponseEntity.ok("Abstract Factory pattern test endpoint");
