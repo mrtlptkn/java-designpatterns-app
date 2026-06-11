@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("api/chain")
 public class ChainController {
 
-    private final OrderApplicationService orderApplicationService;
+    private final OrderBestApplicationService orderApplicationService;
 
-    public ChainController(OrderApplicationService orderProcessingService){
+    public ChainController(OrderBestApplicationService orderProcessingService){
         this.orderApplicationService = orderProcessingService;
     }
 
