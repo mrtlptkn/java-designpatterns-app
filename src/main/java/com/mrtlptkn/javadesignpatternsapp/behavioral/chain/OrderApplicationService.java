@@ -1,0 +1,25 @@
+package com.mrtlptkn.javadesignpatternsapp.behavioral.chain;
+
+import org.springframework.stereotype.Service;
+
+
+// Orderprocessing Service FraudCheckHander, stockCheckHandler ve paymentCheckHandler'ı birbirine bağlar ve sipariş işleme sürecini başlatır. Bu servisin ana göre alt sınıfların birbirleri koordineli olarak çalışmalarını sağlamaktır.
+
+@Service
+public class OrderApplicationService {
+
+    private final FraudCheckHander fraudCheckHander;
+
+    public OrderApplicationService(FraudCheckHander fraudCheckHander, StockCheckHandler stockCheckHandler, PaymentCheckHandler paymentCheckHandler) {
+        this.fraudCheckHander = fraudCheckHander;
+        fraudCheckHander.setNext(paymentCheckHandler).setNext(stockCheckHandler);
+    }
+
+    public void submit(OrderRequest orderRequest){
+        // Sipariş işleme süreci başlatılır
+        // Burada ise akış kontrollerini başlatıyoruz
+       fraudCheckHander.handle(orderRequest);
+    }
+
+
+}
