@@ -14,14 +14,14 @@ public class PaymentCheckHandler extends OrderHandler {
             System.out.println("Sipariş onaylandı: Ödeme doğrulandı");
 
             // yeni bir işlem eklenirse zincire eklenebilir, bu yüzden passToNext çağırıyoruz.
-            // Son adımda gerek yok ama bu son adımlıktan çıkarsa passToNext eklenmeli. Yoksa şuan hatalı çalışıyor
-
+            passToNext(null); // finalize state
         } else {
             Order entity = new Order();
             entity.setStatus("REJECTED");
             entity.setReason("Ödeme doğrulanamadı!");
-            passToNext(null);
             System.out.println("Sipariş reddedildi: Ödeme doğrulanamadı");
+            passToNext(null);
+
         }
 
     }

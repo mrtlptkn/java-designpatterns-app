@@ -27,7 +27,7 @@ public abstract class OrderHandler {
         if (next != null) {
             next.handle(order);
         } else {
-            System.out.println("Order is approved.");
+            System.out.println("Order Request steps are completed");
         }
     }
 

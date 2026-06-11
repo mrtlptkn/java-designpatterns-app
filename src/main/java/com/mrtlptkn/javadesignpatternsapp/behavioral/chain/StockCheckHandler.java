@@ -13,8 +13,9 @@ public class StockCheckHandler extends OrderHandler {
             entity.setReason("Stokta yeterli ürün bulunmamaktadır!");
             System.out.println("Sipariş reddedildi: Stokta yeterli ürün yok");
         } else {
-            passToNext(orderRequest);
             System.out.println("Stok kontrolü başarılı. Sonraki adıma geçiliyor.");
+            passToNext(orderRequest);
+
         }
     }
 }
