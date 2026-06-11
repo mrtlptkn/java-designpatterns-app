@@ -10,4 +10,11 @@ public interface ITrafficLightState {
 
     String getDescription();
 
+    // Geçiş kuralı her state tarafından belirlenir.
+    boolean canTransitionTo(ITrafficLightState targetState);
+
+    default String cannotTransitionMessage(ITrafficLightState targetState) {
+        return "Cannot switch from " + getColor() + " to " + targetState.getColor() + " directly.";
+    }
+
 }

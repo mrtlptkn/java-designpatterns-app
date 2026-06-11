@@ -8,25 +8,25 @@ import java.util.Map;
 @Component
 public class TrafficLightApplication {
 
-    private final Map<String, ITrafficLightState> states = new HashMap<>();
+    private final TrafficLight trafficLight;
 
-    public TrafficLightApplication() {
-        states.put("Red", new RedTrafficState());
-        states.put("Yellow", new YellowTrafficState());
-        states.put("Green", new GreenTraficState());
+    public TrafficLightApplication(TrafficLight trafficLight) {
+
+        this.trafficLight = trafficLight;
     }
 
     public void handle(TrafficLightRequest request){
 
-        if(states.containsKey(request.color())){
-            System.out.println("Traffic Light State: " + request.color());
-        }else {
-            System.out.println("Invalid Traffic Light State: " + request.color());
-            return;
-        }
 
-        ITrafficLightState state = states.get(request.color()); // RED, GREEN VEYA YELLOW
-        state.next(new TrafficLight()); // Bir sonraki state transition geçiş yap.
+        this.trafficLight.setState(switch (request.color().toUpperCase()) {
+            case "RED" -> new RedTrafficState();
+            case "GREEN" -> new GreenTraficState();
+            case "YELLOW" -> new YellowTrafficState();
+            default -> throw new IllegalArgumentException("Invalid traffic light color: " + request.color());
+        });
+        System.out.println("Current Traffic Light State: " + trafficLight.getState().getColor());
+
+
     }
 
 }

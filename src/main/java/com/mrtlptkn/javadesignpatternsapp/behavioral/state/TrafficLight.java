@@ -1,7 +1,6 @@
 package com.mrtlptkn.javadesignpatternsapp.behavioral.state;
 
 import org.springframework.stereotype.Component;
-import org.springframework.stereotype.Service;
 
 @Component
 public class TrafficLight {
@@ -20,6 +19,11 @@ public class TrafficLight {
 
     // set State ile farklı bir state geçiyoruz.
     public void setState(ITrafficLightState state) {
+        if (!this.state.canTransitionTo(state)) {
+            System.out.println(this.state.cannotTransitionMessage(state));
+            return;
+        }
+
         this.state = state;
     }
 }
