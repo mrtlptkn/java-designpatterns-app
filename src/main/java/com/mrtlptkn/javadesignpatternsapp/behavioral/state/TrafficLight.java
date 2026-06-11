@@ -18,7 +18,9 @@ public class TrafficLight {
     }
 
     // set State ile farklı bir state geçiyoruz.
-    public void setState(ITrafficLightState state) {
+    public void setState(ITrafficLightState state)
+    {
+        // State değişmesi için bir koşulun oluşması gerekiyor diye bir kontrol yaptık.
         if (!this.state.canTransitionTo(state)) {
             System.out.println(this.state.cannotTransitionMessage(state));
             return;

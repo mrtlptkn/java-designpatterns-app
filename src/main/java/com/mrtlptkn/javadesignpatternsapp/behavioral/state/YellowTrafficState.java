@@ -17,6 +17,7 @@ public class YellowTrafficState implements ITrafficLightState {
         return "Hazırda Bekle!";
     }
 
+    // Sarıdayken sadece kırmızı ve yeşile geçebiliriz.
     @Override
     public boolean canTransitionTo(ITrafficLightState targetState) {
         String targetColor = targetState.getColor();

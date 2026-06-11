@@ -17,6 +17,7 @@ public class RedTrafficState implements ITrafficLightState {
         return "Yavaşla! Dur!";
     }
 
+    // Kırmızıdan sarıya geçilebilir mi ?  Evet
     @Override
     public boolean canTransitionTo(ITrafficLightState targetState) {
         return "Yellow".equals(targetState.getColor());
